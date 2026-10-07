@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HiMat LLMs.txt Generator</title>
+    <meta
+      name="description"
+      content="Generate llms.txt and llms-full.txt files in your browser with live validation and preview."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar panel">
+        <div>
+          <p class="eyebrow">HiMat</p>
+          <h1>LLMs.txt Generator</h1>
+        </div>
+        <div class="topbar-meta">
+          <span class="badge badge-privacy">100% Browser-Local</span>
+          <span class="badge badge-soft">Privacy First</span>
+        </div>
+      </header>
+
+      <section class="panel template-panel">
+        <div class="section-header inline-header">
+          <div>
+            <p class="eyebrow">Starter Templates</p>
+            <h2>Quick-start examples</h2>
+          </div>
+          <button id="resetTemplateBtn" class="ghost-btn" type="button">Reset</button>
+        </div>
+        <div class="template-grid" id="templateGrid">
+          <button class="template-btn active" type="button" data-template="saas">SaaS Platform</button>
+          <button class="template-btn" type="button" data-template="developer">Developer / API</button>
+          <button class="template-btn" type="button" data-template="blog">Tech Blog</button>
+          <button class="template-btn" type="button" data-template="commerce">E-Commerce</button>
+          <button class="template-btn" type="button" data-template="agency">Agency / Services</button>
+        </div>
+      </section>
+
+      <main class="workspace">
+        <section class="panel editor-panel">
+          <div class="section-header">
+            <p class="eyebrow">Editor</p>
+            <h2>Site Information</h2>
+          </div>
+
+          <div class="field-group">
+            <label for="documentTitle">Document Title</label>
+            <input id="documentTitle" type="text" placeholder="HiMat SaaS Platform Documentation" />
+          </div>
+
+          <div class="field-group">
+            <label for="documentSummary">Summary</label>
+            <textarea id="documentSummary" rows="4" placeholder="HiMat Technology is an AI-first web engineering platform..."></textarea>
+          </div>
+
+          <div class="section-header sections-header">
+            <p class="eyebrow">Documentation</p>
+            <h2>Sections</h2>
+          </div>
+
+          <div id="sectionsContainer" class="sections-container"></div>
+
+          <div class="button-row">
+            <button id="addSectionBtn" class="primary-btn" type="button">+ Add Section</button>
+          </div>
+
+          <div class="section-header optional-header">
+            <p class="eyebrow">Optional</p>
+            <h2>AI Context</h2>
+          </div>
+
+          <div class="field-group">
+            <textarea id="optionalContent" rows="5" placeholder="HiMat Technology specializes in Next.js, React, TypeScript, Tailwind CSS, and GEO."></textarea>
+          </div>
+        </section>
+
+        <aside class="panel result-panel">
+          <div class="section-header inline-header">
+            <div>
+              <p class="eyebrow">Output</p>
+              <h2>Generator</h2>
+            </div>
+          </div>
+
+          <div class="tabs" aria-label="Output tabs">
+            <button class="tab-btn active" data-tab="llms" type="button">llms.txt</button>
+            <button class="tab-btn" data-tab="full" type="button">llms-full.txt</button>
+            <button class="tab-btn" data-tab="preview" type="button">Preview</button>
+          </div>
+
+          <div class="result-body">
+            <pre id="resultOutput" class="output-box"></pre>
+            <div id="previewOutput" class="markdown-preview hidden"></div>
+          </div>
+
+          <div class="action-row">
+            <button id="copyBtn" class="primary-btn" type="button">Copy llms.txt</button>
+            <button id="downloadLlmsBtn" class="ghost-btn" type="button">Download llms.txt</button>
+            <button id="downloadFullBtn" class="ghost-btn" type="button">Download llms-full.txt</button>
+          </div>
+
+          <div class="validator-card">
+            <div class="section-header inline-header">
+              <div>
+                <p class="eyebrow">Validator</p>
+                <h3>Specification Check</h3>
+              </div>
+            </div>
+            <ul id="validationList" class="validation-list"></ul>
+          </div>
+
+          <div class="privacy-note">
+            <strong>100% Browser-Local Processing</strong>
+            <p>
+              Your website URLs, descriptions and documentation structure never leave the browser.
+            </p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
